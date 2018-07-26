@@ -54,6 +54,11 @@ setTimeout(() => {
 }, 1000)
 */
 
+http.get('http://localhost:8081/api/cheerzers')
+	.then(response => {
+		console.log('CHEERZERS:', response.data)
+	})
+	.catch(err => console.log('ERR:', err))
 
 
 /*

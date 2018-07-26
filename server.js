@@ -8,8 +8,6 @@ const port 			= 8081;
 const http = require('axios')
 const apiUrl = 'http://localhost:3000'
 
-const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
-
 app.use(cors());
 app.options('*', cors());
 app.use('/scripts', express.static(`${__dirname}/node_modules`));
@@ -18,6 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(compress());
 
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
 let availableCheerzers = []
 http.get(apiUrl+'/cheerzers?available=true')
@@ -55,22 +54,20 @@ const getRandomCheerzers = (cheerzers, currentCheerzer) => {
 	}
 
 	console.log(selectedCheerzers)
+	return selectedCheerzers
 }
-
-
 
 app.get('/', (req, res, next) => {
 	res.sendFile(__dirname + '/index.html');
 });
 
 // all routes will be prefixed with /api
-app.use('/api', router);
+app.use('/api', router)
 
-
-setTimeout(() => {
-	getRandomCheerzers(availableCheerzers, {name: 'Guillaume'})
-}, 1000)
-
+router.route('/cheerzers')
+	.get((req, res, next) => {
+		res.json(getRandomCheerzers(availableCheerzers, {name: 'Guillaume'}))
+	})
 
 app.listen(port);
 console.log(`Server running on port ${port}`);
