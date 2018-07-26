@@ -21,24 +21,36 @@ const getAvailableCheerzers = () => {
 	})
 }
 
-const updateAvailability = (name) => {
-	http.post(apiUrl+'/cheerzers', {name})
+const addCheerzer = (name, available) => {
+	http.post(apiUrl+'/cheerzers', {name, available})
+	.then(response => {
+		console.log(response.data)
+		availableCheerzers.push(response.data)
+	})
+	.catch(err => console.log(err))
+}
+
+
+const updateCheerzerAvailability = (name, available) => {
+	const cheerzerToModify = availableCheerzers.find(cheerzer => cheerzer.name === name)
+
+	console.log('cheerzerToModify', cheerzerToModify)
+
+	return http.put(apiUrl+'/cheerzers/'+cheerzerToModify.id, {name, available})
 	.then(response => {
 		console.log(response.data)
 	})
 	.catch(err => console.log(err))
 }
 
-const deleteAvailability = (name) => {
-	console.log('here', availableCheerzers)
-	const cheerzerToDelete = availableCheerzers.find(cheerzer => cheerzer.name === name)
+/*
+addCheerzer('Melissa', false)
 
-	return http.put(apiUrl+'/cheerzers/'+cheerzerToDelete.id, {name, available: false})
-	.then(response => {
-		console.log(response.data)
-	})
-	.catch(err => console.log(err))
-}
+setTimeout(() => {
+ 	updateCheerzerAvailability('Melissa', true)
+}, 1000)
+*/
+
 
 let availableCheerzers = []
 
