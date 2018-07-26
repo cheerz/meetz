@@ -24,7 +24,9 @@ const subscribe = (ev) => {
 		formElement.style.display = 'none'
 		subscribedElement.style.display = 'block'
 
-		console.log('YOU SUBSCRIBED', res, formElement, subscribedElement)
+		window.localStorage.setItem('cheerzerName', cheerzerName)
+
+		console.log('YOU SUBSCRIBED', res)
 	})
 	.catch(err => {
 		console.log(err)
