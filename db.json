@@ -1,0 +1,49 @@
+{
+  "cheerzers": [
+    {
+      "name": "Guillaume",
+      "id": 1,
+      "available": true
+    },
+    {
+      "name": "Romain",
+      "id": 2,
+      "available": true
+    },
+    {
+      "name": "Marie-Blanche",
+      "id": 3,
+      "available": true
+    },
+    {
+      "name": "Milisa",
+      "id": 4,
+      "available": true
+    },
+    {
+      "name": "Sara",
+      "id": 5,
+      "available": true
+    },
+    {
+      "name": "Julien",
+      "id": 6,
+      "available": true
+    },
+    {
+      "name": "Charles",
+      "id": 7,
+      "available": true
+    },
+    {
+      "name": "Raphaele",
+      "id": 8,
+      "available": true
+    },
+    {
+      "name": "AlexandreC",
+      "id": 9,
+      "available": true
+    }
+  ]
+}
