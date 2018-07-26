@@ -54,7 +54,7 @@ setTimeout(() => {
 }, 1000)
 */
 
-http.get('http://localhost:8081/api/cheerzers')
+http.get('http://localhost:8081/api/cheerzers/Guillaume')
 	.then(response => {
 		console.log('CHEERZERS:', response.data)
 	})

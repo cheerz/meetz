@@ -64,9 +64,9 @@ app.get('/', (req, res, next) => {
 // all routes will be prefixed with /api
 app.use('/api', router)
 
-router.route('/cheerzers')
+router.route('/cheerzers/:current_cheerzer_name')
 	.get((req, res, next) => {
-		res.json(getRandomCheerzers(availableCheerzers, {name: 'Guillaume'}))
+		res.json(getRandomCheerzers(availableCheerzers, {name: req.params.current_cheerzer_name}))
 	})
 
 app.listen(port);
