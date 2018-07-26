@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <script src="scripts/axios/dist/axios.min.js"></script>
-  <script src="index.js"></script>
 
 </head>
 <body>
@@ -19,17 +18,41 @@
       <div class="welcome">
         <h1>Bienvenue petit Cheerzer !</h1>
         <h3>Faim de rencontres ?</h3>
-        <button><a href="subscribe.html">Commencer</a></button>
+        <button class="start">Commencer</a></button>
       </div>
 
+      <div class="subscribe">
+        <h1>Je m'inscris</h1>
+        <h3>ton prénom ?</h3>
+        <form class="subscribeForm" onsubmit="return false">
+          <input id="name" class="name" placeholder="prénom" />
+          <button id="subscribeButton" class="subscribeButton" type="submit">S'inscrire</button>
+        </form>
+        <h3 class="subscribed" style="display:none">Tu t'es bien inscrit ! <a href="index.html">Retour</a></h3>
+      </div>
+
+      <div class="welcome_back">
+        <h1>Hey !</h1>
+        <h3>Chaud pour un déj des familles ?</h3>
+        <div class="available">
+          <p>Mon statut : disponible</p>
+          <button class="cancel">J'annule</button>
+        </div>
+        <div class="unavailable">
+          <p>Mon statut : indisponible</p>
+          <button class="hot">Je suis chaud !</button>
+        </div>
+      </div>
+
+
       <div class="explanation">
-        <h4>C'est quoi ?</h4>
+        <h3>C'est quoi ?</h3>
         <p>Tu as toujours rêvé de déjeuner à la table des devs ? Tu n'as jamais compris ce que faisait l'équipe Revenus ? Tu n'as toujours pas retenu le prénom de la nouvelle à la brand ?</p>
         <p>MEETZ a été créé pour cela : permettre aux Cheerzers de tous horizons de se rencontrer autour d'un déjeuner. Pour enfin interagir avec vos obscurs collègues à l'autre bout de l'open space.
         </div>
 
         <div class="how_to">
-          <h4>Comment ça marche ?</h4>
+          <h3>Comment ça marche ?</h3>
           <div class="steps">
             <div class="step1">
               <p><img class="picto" src="design/picto1.png" /></p>
@@ -46,7 +69,7 @@
               <p>3. Dès midi, découvre les 3 personnes choisies au hasard avec qui tu partages ton déjeuner.</p>
             </div>
           </div>
-          
+
         </div>
 
       </div>
@@ -60,6 +83,8 @@
 
 </div>
 
+<script src="index.js"></script>
+<script src="subscribe.js"></script>
 
 </body>
 </html>

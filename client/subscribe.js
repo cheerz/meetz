@@ -1,5 +1,4 @@
-const http = axios
-const apiUrl = 'http://localhost:3000'
+const submitButton = document.querySelector('.subscribeButton')
 
 const addCheerzer = (name, available) => {
 	return http.post(apiUrl+'/cheerzers', {name, available})
@@ -7,12 +6,6 @@ const addCheerzer = (name, available) => {
 		return response.data
 	})
 	.catch(err => console.log(err))
-}
-
-
-const x = () => {
-	const submitButton = document.querySelector('.subscribeButton')
-	submitButton.onclick = subscribe
 }
 
 const subscribe = (ev) => {
@@ -25,6 +18,7 @@ const subscribe = (ev) => {
 		subscribedElement.style.display = 'block'
 
 		window.localStorage.setItem('cheerzerName', cheerzerName)
+		window.localStorage.setItem('available', 'true')
 
 		console.log('YOU SUBSCRIBED', res)
 	})
@@ -33,6 +27,4 @@ const subscribe = (ev) => {
 	})
 }
 
-window.onload = x
-
-
+submitButton.onclick = subscribe

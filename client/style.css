@@ -36,13 +36,19 @@ body {
 	margin: auto;
 }
 
-.welcome, .explanation, .how_to {
+.welcome, .subscribe, 
+.explanation, .how_to,
+.welcome_back {
 	margin: auto;
 	margin-bottom: 20px;
 	background: #e6f5f7bf;
 	text-align: center;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+.subscribe, .welcome_back {
+	display: none;
 }
 
 .steps {
@@ -66,9 +72,21 @@ button {
 	height: 50px;
 	border-radius: 10px;
 	font-size: 16px;
+	border: none;
 }
 
 a, a:visited {
 	color: #296065;
 	text-decoration: none;
+}
+
+
+.name {
+	width: 150px;
+	height: 47px;
+	text-align: center;
+	border: 1px solid grey;
+	border-radius: 10px;
+	font-size: 16px;
+	border: none;
 }
