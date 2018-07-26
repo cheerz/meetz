@@ -32,8 +32,6 @@ getAvailableCheerzers().then(res => {
 })
 
 /*
-addCheerzer('Melissa', false)
-
 setTimeout(() => {
  	updateCheerzerAvailability('Melissa', true)
 }, 1000)

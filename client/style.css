@@ -1,4 +1,33 @@
+body {
+	background: linear-gradient(to bottom, #a1dbff 0%,#cbebff 53%,#f0f9ff 100%) fixed;
+	height: 100%;
+}
+
+.main-container {
+	margin: auto;
+	width: 94%;
+	height: 100%;
+	padding: 10px 20px;
+}
+
 img {
 	width: 200px;
 	height: 150px;
+}
+
+.logo {
+	background: url('design/big-logo.png');
+	background-size: cover;
+	border-radius: 5px;
+	width: 50%;
+	height: 150px;
+	margin: auto;
+}
+
+.header2 {
+	background: url('design/cheerz.jpeg');
+	background-size: cover;
+	border-radius: 5px;
+	width: 100%;
+	height: 300px;
 }
