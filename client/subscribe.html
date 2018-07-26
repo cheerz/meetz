@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Meetz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/axios/dist/axios.min.js"></script>
+    <script src="subscribe.js"></script>
+  </head>
+  <body>
+    <h1>Subscribe</h1>
+
+    <form class="subscribeForm" onsubmit="return false">
+      <label for="name">Name
+        <input id="name" class="name" placeholder="your name" />
+      </label>
+      <button id="subscribeButton" class="subscribeButton" type="submit">Subscribe</button>
+    </form>
+    <h3 class="subscribed" style="display:none">You subscribed!</h3>
+  </body>
+</html>
