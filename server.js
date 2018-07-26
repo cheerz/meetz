@@ -35,7 +35,7 @@ const getRandomCheerzers = (cheerzers, currentCheerzer) => {
 
 	// console.log('cheerzersToChooseFrom', cheerzersToChooseFrom)
 
-	for (let i = 0; selectedCheerzers.length < 4; i++) {
+	for (let i = 0; selectedCheerzers.length < 3; i++) {
 		const randomInt = getRandomInt(0, cheerzersToChooseFrom.length)
 		const randomCheerzer = cheerzersToChooseFrom[randomInt]
 
