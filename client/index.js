@@ -13,7 +13,6 @@ const allCheerzers = ['Milisa', 'Romain', 'Marie-Blanche', 'Sara', 'Guillaume', 
 const getAvailableCheerzers = () => {
 	return http.get(apiUrl+'/cheerzers')
 	.then(response => {
-		// console.log(response.data)
 		return response.data
 	})
 	.catch(err => {
@@ -47,39 +46,19 @@ getAvailableCheerzers().then(res => {
 	availableCheerzers = res
 })
 
-
-/*
-setTimeout(() => {
-	deleteAvailability('Guillaume')
-}, 1000)
-*/
-
-http.get('http://localhost:8081/api/cheerzers/Guillaume')
+// get 4 random people to eat with, from available people
+getRandomCheerzersToEatWith = () => {
+	return http.get('http://localhost:8081/api/cheerzers/Guillaume')
 	.then(response => {
 		console.log('CHEERZERS:', response.data)
+		return response.data
 	})
-	.catch(err => console.log('ERR:', err))
-
-
-/*
-const player = 'Guillaume'
-
-const getFourPeople = () => {
-	const cheerzers = allCheerzers.slice(0, allCheerzers.length).filter(c => c != player)
-	const selectedCheerzers = []
-
-
-	for(let i = 0; selectedCheerzers.length < 4; i++) {
-		const randomInt = getRandomInt(0, cheerzers.length)
-		const randomCheerzer = cheerzers[randomInt]
-
-		if(!selectedCheerzers.includes(randomCheerzer)) {
-			selectedCheerzers.push(randomCheerzer)
-		}
-	}
-
-	console.log(selectedCheerzers)
+	.catch(err => {
+		console.log('ERR:', err)
+		return undefined
+	})
 }
 
-getFourPeople()
-*/
+
+
+getRandomCheerzersToEatWith()
