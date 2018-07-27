@@ -26,8 +26,6 @@ const getAvailableCheerzers = () => {
 const updateCheerzerAvailability = (name, available) => {
 	const cheerzerToModify = availableCheerzers.find(cheerzer => cheerzer.name === name)
 
-	console.log('cheerzerToModify', cheerzerToModify)
-
 	return http.put(apiUrl+'/cheerzers/'+cheerzerToModify.id, {name, available})
 	.then(response => {
 		console.log(response.data)

@@ -38,7 +38,7 @@ body {
 
 .welcome, .subscribe, 
 .explanation, .how_to,
-.welcome_back {
+.welcome_back, .results {
 	margin: auto;
 	margin-bottom: 20px;
 	background: #e6f5f7bf;
@@ -51,7 +51,7 @@ body {
 	display: none;
 }
 
-.steps {
+.steps, .cheerzers {
 	display: flex;
 	flex-direction: row;
 }
@@ -89,4 +89,9 @@ a, a:visited {
 	border-radius: 10px;
 	font-size: 16px;
 	border: none;
+}
+
+.cheerzer {
+	width: 200px;
+	margin: auto;
 }

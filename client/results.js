@@ -22,6 +22,7 @@ setTimeout(() => {
 		const cheerzersElement = document.querySelector('.cheerzers')
 		res.forEach(cheerzer => {
 				let el = document.createElement('p')
+				el.className = 'cheerzer'
 				el.innerHTML = cheerzer.name + '<br><img class="result_photo" src="photos/'+ cheerzer.name +'.jpg" />'
 				cheerzersElement.appendChild(el)
 			})
