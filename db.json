@@ -69,6 +69,69 @@
       "name": "Melissa",
       "available": true,
       "id": 14
+    },
+    {
+      "name": "Damien",
+      "available": true,
+      "id": 15
+    },
+    {
+      "name": "DavidG",
+      "available": true,
+      "id": 16
+    },
+    {
+      "name": "Robin",
+      "available": true,
+      "id": 17
+    }
+  ],
+  "results": [
+    {
+      "group": [
+        {
+          "name": "Milisa",
+          "id": 4,
+          "available": true
+        },
+        {
+          "name": "Charles",
+          "id": 7,
+          "available": true
+        },
+        {
+          "name": "Melissa",
+          "available": true,
+          "id": 14
+        },
+        {
+          "name": "DavidG",
+          "available": true,
+          "id": 16
+        }
+      ],
+      "id": 1
+    },
+    {
+      "group": [
+        {
+          "name": "Thomas",
+          "available": true,
+          "id": 10
+        },
+        {
+          "name": "Raphaele",
+          "id": 8,
+          "available": true
+        },
+        {
+          "name": "DavidP",
+          "available": true,
+          "id": 13
+        },
+        null
+      ],
+      "id": 2
     }
   ]
 }

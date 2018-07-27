@@ -31,7 +31,8 @@ http.get(apiUrl+'/cheerzers?available=true')
 let resultsOfTheday = []
 http.get(apiUrl+'/results')
 .then(response => {
-	resultsOfTheday = response.data
+	resultsOfTheDay = response.data
+	//console.log(response.data)
 })
 .catch(err => {
 	console.log(err)
@@ -39,28 +40,37 @@ http.get(apiUrl+'/results')
 })
 
 const getRandomCheerzers = (cheerzers, currentCheerzer) => {
-	const cheerzersToChooseFrom = cheerzers.slice(0, cheerzers.length).filter(c => c.name != currentCheerzer.name)
-	const selectedCheerzers = []
+	let results
+	resultsOfTheDay.forEach(result => {
+		console.log('result', result)
+		results = result.group.filter(cheerzer => { cheerzer.id === currentCheerzer.id })
+	})
+	if(results.length > 0) {
+		return results
+	} else {
+		const cheerzersToChooseFrom = cheerzers.slice(0, cheerzers.length).filter(c => c.name != currentCheerzer.name)
+		const selectedCheerzers = []
 
-	for (let i = 0; selectedCheerzers.length < 3; i++) {
-		const randomInt = getRandomInt(0, cheerzersToChooseFrom.length)
-		const randomCheerzer = cheerzersToChooseFrom[randomInt]
+		for (let i = 0; selectedCheerzers.length < 3; i++) {
+			const randomInt = getRandomInt(0, cheerzersToChooseFrom.length)
+			const randomCheerzer = cheerzersToChooseFrom[randomInt]
 
-		if(selectedCheerzers.length > 0) {
-			let selectedCheerzersNames = []
-			selectedCheerzers.forEach(cheerzer => {
-				selectedCheerzersNames.push(cheerzer.name)
-			})
+			if(selectedCheerzers.length > 0) {
+				let selectedCheerzersNames = []
+				selectedCheerzers.forEach(cheerzer => {
+					selectedCheerzersNames.push(cheerzer.name)
+				})
 
-			if (randomCheerzer && !selectedCheerzersNames.includes(randomCheerzer.name)) {
+				if (randomCheerzer && !selectedCheerzersNames.includes(randomCheerzer.name)) {
+					selectedCheerzers.push(randomCheerzer)
+				}
+			} else {
 				selectedCheerzers.push(randomCheerzer)
 			}
-		} else {
-			selectedCheerzers.push(randomCheerzer)
 		}
+		return selectedCheerzers
 	}
 
-	return selectedCheerzers
 }
 
 app.get('/', (req, res, next) => {
@@ -72,18 +82,31 @@ app.use('/api', router)
 
 router.route('/cheerzers/:current_cheerzer_name')
 .get((req, res, next) => {
-	const ranCheerzers = getRandomCheerzers(availableCheerzers, {name: req.params.current_cheerzer_name})
-	res.json(ranCheerzers)
-	/*
-	http.post(apiUrl+'/results', ranCheerzers)
-	.then(response => {
-		console.log('ehehehe', response.data)
-	})
-	.catch(err => {
-		console.log(err)
-		return undefined
-	})
-	*/
+	const currChName = req.params.current_cheerzer_name
+	const ranCheerzers = getRandomCheerzers(availableCheerzers, {name: currChName})
+
+	setTimeout(() => {
+		//let currentCheerzer = {name: "DavidG", id: 16, available: true}
+		let currentCheerzer = availableCheerzers.find(c => c.name == currChName)
+		let xxx = ranCheerzers.slice(0, ranCheerzers.length)
+		xxx.push(currentCheerzer)
+
+		availableCheerzers.forEach(c => console.log('name:::', c.name)) 
+
+
+		http.post(apiUrl+'/results', {group: xxx})
+		.then(response => {
+			console.log('ehehehe', response.data)
+		})
+		.catch(err => {
+			console.log(err)
+			return undefined
+		})
+
+		res.json(ranCheerzers)
+	}, 1000)
+	
+
 })
 
 app.listen(port)

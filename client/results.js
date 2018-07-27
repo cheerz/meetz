@@ -1,7 +1,7 @@
 const http = axios
 const apiUrl = 'http://localhost:8081'
 
-const currentCheerzerName = window.localStorage.getItem('currentCheerzerName')
+const currentCheerzerName = window.localStorage.getItem('cheerzerName')
 const cheerzers = window.localStorage.getItem('cheerzers')
 const cheerzersElement = document.querySelector('.cheerzers')
 
@@ -21,6 +21,7 @@ const getRandomCheerzersToEatWith = (currentCheerzerName) => {
 }
 
 if(cheerzers) {
+	console.log(cheerzers)
 	JSON.parse(cheerzers).forEach(cheerzer => {
 		let el = document.createElement('p')
 		el.className = 'cheerzer'
