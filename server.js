@@ -21,8 +21,17 @@ const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + 
 let availableCheerzers = []
 http.get(apiUrl+'/cheerzers?available=true')
 .then(response => {
-	// console.log(response.data)
 	availableCheerzers = response.data
+})
+.catch(err => {
+	console.log(err)
+	return undefined
+})
+
+let resultsOfTheday = []
+http.get(apiUrl+'/results')
+.then(response => {
+	resultsOfTheday = response.data
 })
 .catch(err => {
 	console.log(err)
@@ -32,8 +41,6 @@ http.get(apiUrl+'/cheerzers?available=true')
 const getRandomCheerzers = (cheerzers, currentCheerzer) => {
 	const cheerzersToChooseFrom = cheerzers.slice(0, cheerzers.length).filter(c => c.name != currentCheerzer.name)
 	const selectedCheerzers = []
-
-	// console.log('cheerzersToChooseFrom', cheerzersToChooseFrom)
 
 	for (let i = 0; selectedCheerzers.length < 3; i++) {
 		const randomInt = getRandomInt(0, cheerzersToChooseFrom.length)
@@ -53,7 +60,6 @@ const getRandomCheerzers = (cheerzers, currentCheerzer) => {
 		}
 	}
 
-	console.log(selectedCheerzers)
 	return selectedCheerzers
 }
 
@@ -65,9 +71,20 @@ app.get('/', (req, res, next) => {
 app.use('/api', router)
 
 router.route('/cheerzers/:current_cheerzer_name')
-	.get((req, res, next) => {
-		res.json(getRandomCheerzers(availableCheerzers, {name: req.params.current_cheerzer_name}))
+.get((req, res, next) => {
+	const ranCheerzers = getRandomCheerzers(availableCheerzers, {name: req.params.current_cheerzer_name})
+	res.json(ranCheerzers)
+	/*
+	http.post(apiUrl+'/results', ranCheerzers)
+	.then(response => {
+		console.log('ehehehe', response.data)
 	})
+	.catch(err => {
+		console.log(err)
+		return undefined
+	})
+	*/
+})
 
 app.listen(port)
 console.log(`Server running on port ${port}`)

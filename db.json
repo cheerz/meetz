@@ -61,19 +61,14 @@
       "id": 12
     },
     {
-      "name": "",
+      "name": "DavidP",
       "available": true,
       "id": 13
     },
     {
-      "name": "Toto",
+      "name": "Melissa",
       "available": true,
       "id": 14
-    },
-    {
-      "name": "DavidP",
-      "available": true,
-      "id": 15
     }
   ]
 }

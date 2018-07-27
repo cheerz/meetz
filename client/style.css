@@ -95,3 +95,7 @@ a, a:visited {
 	width: 200px;
 	margin: auto;
 }
+
+.cheerzer img {
+	border-radius: 10px;
+}
